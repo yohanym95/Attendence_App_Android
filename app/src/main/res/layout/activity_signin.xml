@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_person_black_24dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/etEmail1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+
+
+        <EditText
+            android:id="@+id/etPassword1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:background="@android:color/holo_blue_dark"
+            android:text="Login"
+            android:textColor="@android:color/background_light" />
+
+        <TextView
+            android:id="@+id/tvSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Don't You Create Account? Sign Up"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="18sp" />
+
+        <ProgressBar
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ProgressBar1"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+
+</LinearLayout>
