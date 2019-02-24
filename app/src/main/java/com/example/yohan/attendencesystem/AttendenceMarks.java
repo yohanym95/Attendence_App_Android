@@ -3,7 +3,9 @@ package com.example.yohan.attendencesystem;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,6 +31,11 @@ public class AttendenceMarks extends AppCompatActivity {
 
     CheckBox checkBox1,checkBox2,checkBox3,checkBox4,checkBox5,checkBox6,checkBox7,checkBox8,checkBox9,checkBox10,checkBox11,checkBox12,checkBox13,checkBox14,checkBox15,checkBox16,checkBox17,checkBox18,checkBox19,checkBox20,checkBox21,checkBox22,checkBox23,checkBox24,checkBox25,checkBox26,checkBox27,checkBox28,checkBox29,checkBox30,checkBox31,checkBox32,checkBox33,checkBox34,checkBox35,checkBox36,checkBox37,checkBox38,checkBox39,checkBox40;
     CheckBox checkBox41,checkBox42,checkBox43,checkBox44,checkBox45,checkBox46,checkBox47,checkBox48,checkBox49,checkBox50,checkBox51,checkBox52,checkBox53,checkBox54,checkBox55,checkBox56,checkBox57,checkBox58,checkBox59,checkBox60,checkBox61,checkBox62,checkBox63,checkBox64,checkBox65,checkBox66,checkBox67,checkBox68,checkBox69,checkBox70,checkBox71,checkBox72,checkBox73,checkBox74,checkBox75,checkBox76,checkBox77,checkBox78,checkBox79,checkBox80,checkBox81,checkBox82,checkBox83,checkBox84,checkBox85,checkBox86,checkBox87,checkBox88,checkBox89,checkBox90,checkBox91,checkBox92,checkBox93,checkBox94,checkBox95,checkBox96,checkBox97,checkBox98,checkBox99,checkBox100,checkBox101,checkBox102;
+
+    LinearLayout linearLayout1,linearLayout2,linearLayout3,linearLayout4,linearLayout5,linearLayout6,linearLayout7,linearLayout8,linearLayout9,linearLayout10,linearLayout11,linearLayout12,linearLayout13,linearLayout14,linearLayout15,linearLayout16,linearLayout17,linearLayout18,linearLayout19,linearLayout20,linearLayout21,linearLayout22,linearLayout23,linearLayout24,linearLayout25,linearLayout26,linearLayout27,linearLayout28,linearLayout29,linearLayout30,linearLayout31,linearLayout32,linearLayout33,linearLayout34;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -242,6 +249,40 @@ public class AttendenceMarks extends AppCompatActivity {
         checkBox102 = findViewById(R.id.checkBox102);
 
 
+        linearLayout1 = findViewById(R.id.lin1);
+        linearLayout2 = findViewById(R.id.lin2);
+        linearLayout3 = findViewById(R.id.lin3);
+        linearLayout4 = findViewById(R.id.lin4);
+        linearLayout5 = findViewById(R.id.lin5);
+        linearLayout6 = findViewById(R.id.lin6);
+        linearLayout7 = findViewById(R.id.lin7);
+        linearLayout8 = findViewById(R.id.lin8);
+        linearLayout9 = findViewById(R.id.lin9);
+        linearLayout10 = findViewById(R.id.lin10);
+        linearLayout11 = findViewById(R.id.lin11);
+        linearLayout12 = findViewById(R.id.lin12);
+        linearLayout13 = findViewById(R.id.lin13);
+        linearLayout14 = findViewById(R.id.lin14);
+        linearLayout15 = findViewById(R.id.lin15);
+        linearLayout16 = findViewById(R.id.lin16);
+        linearLayout17 = findViewById(R.id.lin17);
+        linearLayout18 = findViewById(R.id.lin18);
+        linearLayout19 = findViewById(R.id.lin19);
+        linearLayout20 = findViewById(R.id.lin20);
+        linearLayout21 = findViewById(R.id.lin21);
+        linearLayout22 = findViewById(R.id.lin22);
+        linearLayout23 = findViewById(R.id.lin23);
+        linearLayout24 = findViewById(R.id.lin24);
+        linearLayout25 = findViewById(R.id.lin25);
+        linearLayout26 = findViewById(R.id.lin26);
+        linearLayout27 = findViewById(R.id.lin27);
+        linearLayout28 = findViewById(R.id.lin28);
+        linearLayout29 = findViewById(R.id.lin29);
+        linearLayout30 = findViewById(R.id.lin30);
+        linearLayout31 = findViewById(R.id.lin31);
+        linearLayout32 = findViewById(R.id.lin32);
+        linearLayout33 = findViewById(R.id.lin33);
+        linearLayout34 = findViewById(R.id.lin34);
 
 
 
@@ -266,9 +307,193 @@ public class AttendenceMarks extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                            String APC2321 = dataSnapshot.child("15APC2321").getValue().toString();
+                            String APC2322 = dataSnapshot.child("15APC2322").getValue().toString();
+                            String APC2323 = dataSnapshot.child("15APC2323").getValue().toString();
+                            String APC2324 = dataSnapshot.child("15APC2324").getValue().toString();
+                            String APC2325 = dataSnapshot.child("15APC2325").getValue().toString();
+                            String APC2326 = dataSnapshot.child("15APC2326").getValue().toString();
+                            String APC2327 = dataSnapshot.child("15APC2327").getValue().toString();
+                            String APC2328 = dataSnapshot.child("15APC2328").getValue().toString();
+                            String APC2329 = dataSnapshot.child("15APC2329").getValue().toString();
+                            String APC2330 = dataSnapshot.child("15APC2330").getValue().toString();
+                            String APC2331 = dataSnapshot.child("15APC2331").getValue().toString();
+                            String APC2332 = dataSnapshot.child("15APC2332").getValue().toString();
+                            String APC2333 = dataSnapshot.child("15APC2333").getValue().toString();
+                            String APC2334 = dataSnapshot.child("15APC2334").getValue().toString();
+                            String APC2335 = dataSnapshot.child("15APC2335").getValue().toString();
+                            String APC2336 = dataSnapshot.child("15APC2336").getValue().toString();
+                            String APC2337 = dataSnapshot.child("15APC2337").getValue().toString();
+                            String APC2338 = dataSnapshot.child("15APC2338").getValue().toString();
+                            String APC2339 = dataSnapshot.child("15APC2339").getValue().toString();
+                            String APC2340 = dataSnapshot.child("15APC2340").getValue().toString();
+                            String APC2341 = dataSnapshot.child("15APC2341").getValue().toString();
+                            String APC2342 = dataSnapshot.child("15APC2342").getValue().toString();
+                            String APC2343 = dataSnapshot.child("15APC2343").getValue().toString();
+                            String APC2344 = dataSnapshot.child("15APC2344").getValue().toString();
+                            String APC2345 = dataSnapshot.child("15APC2345").getValue().toString();
+                            String APC2346 = dataSnapshot.child("15APC2346").getValue().toString();
+                            String APC2347 = dataSnapshot.child("15APC2347").getValue().toString();
+                            String APC2348 = dataSnapshot.child("15APC2348").getValue().toString();
+                            String APC2349 = dataSnapshot.child("15APC2349").getValue().toString();
+                            String APC2350 = dataSnapshot.child("15APC2350").getValue().toString();
+                            String APC2351 = dataSnapshot.child("15APC2351").getValue().toString();
+                            String APC2352 = dataSnapshot.child("15APC2352").getValue().toString();
+                            String APC2353 = dataSnapshot.child("15APC2353").getValue().toString();
+                            String APC2354 = dataSnapshot.child("15APC2354").getValue().toString();
+                            String APC2355 = dataSnapshot.child("15APC2355").getValue().toString();
+                            String APC2356 = dataSnapshot.child("15APC2356").getValue().toString();
+                            String APC2357 = dataSnapshot.child("15APC2357").getValue().toString();
+                            String APC2358 = dataSnapshot.child("15APC2358").getValue().toString();
+                            String APC2359 = dataSnapshot.child("15APC2359").getValue().toString();
+                            String APC2360 = dataSnapshot.child("15APC2360").getValue().toString();
+                            String APC2361 = dataSnapshot.child("15APC2361").getValue().toString();
+                            String APC2362 = dataSnapshot.child("15APC2362").getValue().toString();
+                            String APC2363 = dataSnapshot.child("15APC2363").getValue().toString();
+                            String APC2364 = dataSnapshot.child("15APC2364").getValue().toString();
+                            String APC2365 = dataSnapshot.child("15APC2365").getValue().toString();
                             String APC2366 = dataSnapshot.child("15APC2366").getValue().toString();
-                            
-                            textView1.setText(APC2366);
+                            String APC2367 = dataSnapshot.child("15APC2367").getValue().toString();
+                            String APC2368 = dataSnapshot.child("15APC2368").getValue().toString();
+                            String APC2369 = dataSnapshot.child("15APC2369").getValue().toString();
+                            String APC2370 = dataSnapshot.child("15APC2370").getValue().toString();
+                            String APC2371 = dataSnapshot.child("15APC2371").getValue().toString();
+                            String APC2372 = dataSnapshot.child("15APC2372").getValue().toString();
+                            String APC2373 = dataSnapshot.child("15APC2373").getValue().toString();
+                            String APC2374 = dataSnapshot.child("15APC2374").getValue().toString();
+                            String APC2375 = dataSnapshot.child("15APC2375").getValue().toString();
+                            String APC2376 = dataSnapshot.child("15APC2376").getValue().toString();
+                            String APC2377 = dataSnapshot.child("15APC2377").getValue().toString();
+                            String APC2378 = dataSnapshot.child("15APC2378").getValue().toString();
+                            String APC2379 = dataSnapshot.child("15APC2379").getValue().toString();
+                            String APC2380 = dataSnapshot.child("15APC2380").getValue().toString();
+                            String APC2381 = dataSnapshot.child("15APC2381").getValue().toString();
+                            String APC2382 = dataSnapshot.child("15APC2382").getValue().toString();
+                            String APC2383 = dataSnapshot.child("15APC2383").getValue().toString();
+                            String APC2384 = dataSnapshot.child("15APC2384").getValue().toString();
+                            String APC2385 = dataSnapshot.child("15APC2385").getValue().toString();
+                            String APC2386 = dataSnapshot.child("15APC2386").getValue().toString();
+                            String APC2387 = dataSnapshot.child("15APC2387").getValue().toString();
+                            String APC2388 = dataSnapshot.child("15APC2388").getValue().toString();
+                            String APC2389 = dataSnapshot.child("15APC2389").getValue().toString();
+                            String APC2390 = dataSnapshot.child("15APC2390").getValue().toString();
+                            String APC2391 = dataSnapshot.child("15APC2391").getValue().toString();
+                            String APC2392 = dataSnapshot.child("15APC2392").getValue().toString();
+                            String APC2393 = dataSnapshot.child("15APC2393").getValue().toString();
+                            String APC2394 = dataSnapshot.child("15APC2394").getValue().toString();
+                            String APC2395 = dataSnapshot.child("15APC2395").getValue().toString();
+                            String APC2396 = dataSnapshot.child("15APC2396").getValue().toString();
+                            String APC2397 = dataSnapshot.child("15APC2397").getValue().toString();
+                            String APC2398 = dataSnapshot.child("15APC2398").getValue().toString();
+                            String APC2399 = dataSnapshot.child("15APC2399").getValue().toString();
+                            String APC2400 = dataSnapshot.child("15APC2400").getValue().toString();
+                            String APC2401 = dataSnapshot.child("15APC2401").getValue().toString();
+                            String APC2402 = dataSnapshot.child("15APC2402").getValue().toString();
+                            String APC2403 = dataSnapshot.child("15APC2403").getValue().toString();
+                            String APC2404 = dataSnapshot.child("15APC2404").getValue().toString();
+                            String APC2405 = dataSnapshot.child("15APC2405").getValue().toString();
+                            String APC2406 = dataSnapshot.child("15APC2406").getValue().toString();
+                            String APC2407 = dataSnapshot.child("15APC2407").getValue().toString();
+                            String APC2408 = dataSnapshot.child("15APC2408").getValue().toString();
+
+
+                            textView1.setText(APC2321);
+                            textView2.setText(APC2322);
+                            textView3.setText(APC2323);
+                            textView4.setText(APC2324);
+                            textView5.setText(APC2325);
+                            textView6.setText(APC2326);
+                            textView7.setText(APC2327);
+                            textView8.setText(APC2328);
+                            textView9.setText(APC2329);
+                            textView10.setText(APC2330);
+                            textView11.setText(APC2331);
+                            textView12.setText(APC2332);
+                            textView13.setText(APC2333);
+                            textView14.setText(APC2334);
+                            textView15.setText(APC2335);
+                            textView16.setText(APC2336);
+                            textView17.setText(APC2337);
+                            textView18.setText(APC2338);
+                            textView19.setText(APC2339);
+                            textView20.setText(APC2340);
+                            textView21.setText(APC2341);
+                            textView22.setText(APC2342);
+                            textView23.setText(APC2343);
+                            textView24.setText(APC2344);
+                            textView25.setText(APC2345);
+                            textView26.setText(APC2346);
+                            textView27.setText(APC2347);
+                            textView28.setText(APC2348);
+                            textView29.setText(APC2349);
+                            textView30.setText(APC2350);
+                            textView31.setText(APC2351);
+                            textView32.setText(APC2352);
+                            textView33.setText(APC2353);
+                            textView34.setText(APC2354);
+                            textView35.setText(APC2355);
+                            textView36.setText(APC2356);
+                            textView37.setText(APC2357);
+                            textView38.setText(APC2358);
+                            textView39.setText(APC2359);
+                            textView40.setText(APC2360);
+                            textView41.setText(APC2361);
+                            textView42.setText(APC2362);
+                            textView43.setText(APC2363);
+                            textView44.setText(APC2364);
+                            textView45.setText(APC2365);
+                            textView46.setText(APC2366);
+                            textView47.setText(APC2367);
+                            textView48.setText(APC2368);
+                            textView49.setText(APC2369);
+                            textView50.setText(APC2370);
+                            textView51.setText(APC2371);
+                            textView52.setText(APC2372);
+                            textView53.setText(APC2373);
+                            textView54.setText(APC2374);
+                            textView55.setText(APC2375);
+                            textView56.setText(APC2376);
+                            textView57.setText(APC2377);
+                            textView58.setText(APC2378);
+                            textView59.setText(APC2379);
+                            textView60.setText(APC2380);
+                            textView61.setText(APC2381);
+                            textView62.setText(APC2382);
+                            textView63.setText(APC2383);
+                            textView64.setText(APC2384);
+                            textView65.setText(APC2385);
+                            textView66.setText(APC2386);
+                            textView67.setText(APC2387);
+                            textView68.setText(APC2388);
+                            textView69.setText(APC2389);
+                            textView70.setText(APC2390);
+                            textView71.setText(APC2391);
+                            textView72.setText(APC2392);
+                            textView73.setText(APC2393);
+                            textView74.setText(APC2394);
+                            textView75.setText(APC2395);
+                            textView76.setText(APC2396);
+                            textView77.setText(APC2397);
+                            textView78.setText(APC2398);
+                            textView79.setText(APC2399);
+                            textView80.setText(APC2400);
+                            textView81.setText(APC2401);
+                            textView82.setText(APC2402);
+                            textView83.setText(APC2403);
+                            textView84.setText(APC2404);
+                            textView85.setText(APC2405);
+                            textView86.setText(APC2406);
+                            textView87.setText(APC2407);
+                            textView88.setText(APC2408);
+                            textView89.setText("15APC2409");
+                            textView90.setText("15APC2410");
+
+                            linearLayout31.setVisibility(View.GONE);
+                            linearLayout32.setVisibility(View.GONE);
+                            linearLayout33.setVisibility(View.GONE);
+                            linearLayout34.setVisibility(View.GONE);
+
+
                         }
 
                         @Override
