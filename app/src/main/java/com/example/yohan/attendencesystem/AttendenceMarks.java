@@ -1,5 +1,6 @@
 package com.example.yohan.attendencesystem;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -292,7 +293,15 @@ public class AttendenceMarks extends AppCompatActivity {
 
         String id = user.getUid();
 
-
+        Intent i = getIntent();
+        String datetime = i.getStringExtra("time");
+        String period = i.getStringExtra("timeperiod");
+        String lec = i.getStringExtra("lecturer");
+        String lecName = i.getStringExtra("lecName");
+        String mid = i.getStringExtra("mid");
+        String quiz = i.getStringExtra("quiz");
+        String remarks = i.getStringExtra("remarks");
+        
         mDatabase1 = FirebaseDatabase.getInstance().getReference("Users").child(id);
 
         mDatabase1.addValueEventListener(new ValueEventListener() {
