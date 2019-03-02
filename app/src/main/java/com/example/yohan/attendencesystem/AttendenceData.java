@@ -20,7 +20,7 @@ import java.util.Date;
 public class AttendenceData extends AppCompatActivity {
 
     ImageButton btnNext;
-    DatabaseReference mFirebase;
+    DatabaseReference mFirebase1;
     FirebaseAuth mAuth;
     TextView tvTime;
     Spinner sp_time;
@@ -43,7 +43,7 @@ public class AttendenceData extends AppCompatActivity {
         etRemarks = findViewById(R.id.etRemarks);
         btnNext = findViewById(R.id.btnNext);
 
-        mFirebase = FirebaseDatabase.getInstance().getReference("Users");
+
 
         if(checkMid.isChecked()){
             mid = "Mid : yes";
@@ -67,6 +67,7 @@ public class AttendenceData extends AppCompatActivity {
         final String  datetime = DateFormat.getDateTimeInstance()
                 .format(new Date());
         tvTime.setText(datetime);
+     //   mFirebase1 = FirebaseDatabase.getInstance().getReference("Databases").child(datetime);
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +81,12 @@ public class AttendenceData extends AppCompatActivity {
                 i.putExtra("quiz",quiz);
                 i.putExtra("remarks",remarks);
                 startActivity(i);
+                tvTime.setText("");
+                etLec.setText("");
+                etLecName.setText("");
+                checkMid.setChecked(false);
+                checkQuiz.setChecked(false);
+                etRemarks.setText("");
             }
         });
 

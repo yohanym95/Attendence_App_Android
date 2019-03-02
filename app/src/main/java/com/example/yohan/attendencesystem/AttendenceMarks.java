@@ -5,10 +5,14 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -17,12 +21,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.HashMap;
+
 public class AttendenceMarks extends AppCompatActivity {
 
     DatabaseReference mDatabase;
-    DatabaseReference mDatabase1;
+    DatabaseReference mDatabase1,mDatabase2,mDatabase3;
     FirebaseAuth mAuth;
     static String course,year;
+    String  datetime1,datetime,period,lec,lecName,mid,quiz,remarks;
 
 
     TextView textView1,textView2,textView3,textView4,textView5,textView6,textView7,textView8,textView9,textView10,textView11,textView12,textView13,textView14,textView15,textView16,textView17,textView18,textView19,textView20,textView21,textView22,textView23,textView24,textView25,textView26,textView27,textView28,textView29,textView30;
@@ -36,6 +45,7 @@ public class AttendenceMarks extends AppCompatActivity {
     LinearLayout linearLayout1,linearLayout2,linearLayout3,linearLayout4,linearLayout5,linearLayout6,linearLayout7,linearLayout8,linearLayout9,linearLayout10,linearLayout11,linearLayout12,linearLayout13,linearLayout14,linearLayout15,linearLayout16,linearLayout17,linearLayout18,linearLayout19,linearLayout20,linearLayout21,linearLayout22,linearLayout23,linearLayout24,linearLayout25,linearLayout26,linearLayout27,linearLayout28,linearLayout29,linearLayout30,linearLayout31,linearLayout32,linearLayout33,linearLayout34;
 
 
+    Button btnSave;
 
 
     @Override
@@ -285,6 +295,9 @@ public class AttendenceMarks extends AppCompatActivity {
         linearLayout33 = findViewById(R.id.lin33);
         linearLayout34 = findViewById(R.id.lin34);
 
+        btnSave = findViewById(R.id.btnSave);
+
+
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -294,15 +307,18 @@ public class AttendenceMarks extends AppCompatActivity {
         String id = user.getUid();
 
         Intent i = getIntent();
-        String datetime = i.getStringExtra("time");
-        String period = i.getStringExtra("timeperiod");
-        String lec = i.getStringExtra("lecturer");
-        String lecName = i.getStringExtra("lecName");
-        String mid = i.getStringExtra("mid");
-        String quiz = i.getStringExtra("quiz");
-        String remarks = i.getStringExtra("remarks");
-        
+         datetime = i.getStringExtra("time");
+         period = i.getStringExtra("timeperiod");
+         lec = i.getStringExtra("lecturer");
+         lecName = i.getStringExtra("lecName");
+         mid = i.getStringExtra("mid");
+         quiz = i.getStringExtra("quiz");
+         remarks = i.getStringExtra("remarks");
+
         mDatabase1 = FirebaseDatabase.getInstance().getReference("Users").child(id);
+
+        datetime1 = DateFormat.getDateTimeInstance()
+                .format(new Date());
 
         mDatabase1.addValueEventListener(new ValueEventListener() {
             @Override
@@ -311,7 +327,9 @@ public class AttendenceMarks extends AppCompatActivity {
                  year = dataSnapshot.child("year").getValue().toString();
 
                 if(course.equals("CIS") && year.equals("2.2")){
+
                     mDatabase = FirebaseDatabase.getInstance().getReference("CIS").child("2_2");
+
                     mDatabase.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -520,9 +538,871 @@ public class AttendenceMarks extends AppCompatActivity {
             }
         });
 
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                addData2_2CIS();
+            }
+        });
 
 
 
+
+
+    }
+
+    private void addData2_2CIS() {
+        String APC2321_15,APC2322_15,APC2323_15,APC2324_15,APC2325_15,APC2326_15,APC2327_15,APC2328_15,APC2329_15,APC2330_15,APC2331_15,APC2332_15,APC2333_15,APC2334_15,APC2335_15,APC2336_15,APC2337_15,APC2338_15,APC2339_15,APC2340_15,APC2341_15,APC2342_15,APC2343_15,APC2344_15,APC2345_15,APC2346_15,APC2347_15,APC2348_15,APC2349_15,APC2350_15,APC2351_15,APC2352_15,APC2353_15,APC2354_15,APC2355_15,APC2356_15,APC2357_15,APC2358_15,APC2359_15,APC2360_15,APC2361_15,APC2362_15,APC2363_15,APC2364_15,APC2365_15,APC2366_15,APC2367_15,APC2368_15,APC2369_15,APC2370_15,APC2371_15,APC2372_15,APC2373_15,APC2374_15,APC2375_15,APC2376_15,APC2377_15,APC2378_15,APC2379_15,APC2380_15,APC2381_15,APC2382_15,APC2383_15,APC2384_15,APC2385_15,APC2386_15,APC2387_15,APC2388_15,APC2389_15,APC2390_15,APC2391_15,APC2392_15,APC2393_15,APC2394_15,APC2395_15,APC2396_15,APC2397_15,APC2398_15,APC2399_15,APC2400_15,APC2401_15,APC2402_15,APC2403_15,APC2404_15,APC2405_15,APC2406_15,APC2407_15,APC2408_15,APC2409_15,APC2410_15;
+
+        mDatabase2 = FirebaseDatabase.getInstance().getReference("Attendence_Database").child("2_2_CIS").child(datetime1);
+
+        HashMap<String,String> AttendData = new HashMap<>();
+        AttendData.put("Date",datetime1);
+        AttendData.put("Lec_Period",period);
+        AttendData.put("Lecture",lec);
+        AttendData.put("Lecturer_Name",lecName);
+        AttendData.put("mid",mid);
+        AttendData.put("Quiz",quiz);
+        AttendData.put("Remarks",remarks);
+        mDatabase2.setValue(AttendData).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(AttendenceMarks.this,"Successfully added",Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(AttendenceMarks.this,"Error!",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+       // mDatabase3 = FirebaseDatabase.getInstance().getReference("Attendence_Database").child("2_2_CIS").child(datetime1);
+
+        HashMap<String,String> ATTEND = new HashMap<>();
+
+
+        if(checkBox1.isChecked()){
+
+             APC2321_15 = "YES";
+             ATTEND.put("15APC2321",APC2321_15);
+
+        }else{
+             APC2321_15 = "No";
+             ATTEND.put("15APC2321",APC2321_15);
+        }
+
+        if(checkBox2.isChecked()){
+
+            APC2322_15 = "YES";
+            ATTEND.put("15APC2322",APC2322_15);
+
+        }else{
+            APC2322_15 = "No";
+            ATTEND.put("15APC2322",APC2322_15);
+        }
+
+        if(checkBox3.isChecked()){
+
+            APC2323_15 = "YES";
+            ATTEND.put("15APC2323",APC2323_15);
+
+        }else{
+            APC2323_15 = "No";
+            ATTEND.put("15APC2323",APC2323_15);
+        }
+
+        if(checkBox4.isChecked()){
+            APC2324_15 = "YES";
+            ATTEND.put("15APC2324",APC2324_15);
+
+        }else{
+            APC2324_15 = "No";
+            ATTEND.put("15APC2324",APC2324_15);
+        }
+
+        if(checkBox5.isChecked()){
+            APC2325_15 = "YES";
+            ATTEND.put("15APC2325",APC2325_15);
+
+        }else{
+            APC2325_15 = "No";
+            ATTEND.put("15APC2325",APC2325_15);
+        }
+
+        if(checkBox6.isChecked()){
+
+            APC2326_15 = "YES";
+            ATTEND.put("15APC2326",APC2326_15);
+
+        }else{
+            APC2326_15 = "No";
+            ATTEND.put("15APC2326",APC2326_15);
+        }
+        if(checkBox7.isChecked()){
+
+            APC2327_15 = "YES";
+            ATTEND.put("15APC2327",APC2327_15);
+
+        }else{
+            APC2327_15 = "No";
+            ATTEND.put("15APC2327",APC2327_15);
+        }
+        if(checkBox8.isChecked()){
+
+            APC2328_15 = "YES";
+            ATTEND.put("15APC2328",APC2328_15);
+
+        }else{
+            APC2328_15 = "No";
+            ATTEND.put("15APC2328",APC2328_15);
+        }
+        if(checkBox9.isChecked()){
+
+            APC2329_15 = "YES";
+            ATTEND.put("15APC2329",APC2329_15);
+
+        }else{
+            APC2329_15 = "No";
+            ATTEND.put("15APC2329",APC2329_15);
+        }
+        if(checkBox10.isChecked()){
+            APC2330_15 = "YES";
+            ATTEND.put("15APC2330",APC2330_15);
+
+        }else{
+            APC2330_15 = "No";
+            ATTEND.put("15APC2330",APC2330_15);
+        }
+        if(checkBox11.isChecked()){
+            APC2331_15 = "YES";
+            ATTEND.put("15APC2331",APC2331_15);
+
+        }else{
+            APC2331_15 = "No";
+            ATTEND.put("15APC2331",APC2331_15);
+        }
+        if(checkBox12.isChecked()){
+            APC2332_15 = "YES";
+            ATTEND.put("15APC2332",APC2332_15);
+
+        }else{
+            APC2332_15 = "No";
+            ATTEND.put("15APC2332",APC2332_15);
+        }
+        if(checkBox13.isChecked()){
+            APC2333_15 = "YES";
+            ATTEND.put("15APC2332",APC2333_15);
+
+        }else{
+            APC2333_15 = "No";
+            ATTEND.put("15APC2332",APC2333_15);
+        }
+
+        if(checkBox14.isChecked()){
+            APC2334_15 = "YES";
+            ATTEND.put("15APC2334",APC2334_15);
+
+        }else{
+            APC2334_15 = "No";
+            ATTEND.put("15APC2334",APC2334_15);
+        }
+        if(checkBox15.isChecked()){
+            APC2335_15 = "YES";
+            ATTEND.put("15APC2335",APC2335_15);
+
+        }else{
+            APC2335_15 = "No";
+            ATTEND.put("15APC2335",APC2335_15);
+        }
+        if(checkBox16.isChecked()){
+            APC2336_15 = "YES";
+            ATTEND.put("15APC2336",APC2336_15);
+
+        }else{
+            APC2336_15 = "No";
+            ATTEND.put("15APC2336",APC2336_15);
+        }
+        if(checkBox17.isChecked()){
+            APC2337_15 = "YES";
+            ATTEND.put("15APC2337",APC2337_15);
+
+        }else{
+            APC2337_15 = "No";
+            ATTEND.put("15APC2337",APC2337_15);
+        }
+        if(checkBox17.isChecked()){
+            APC2337_15 = "YES";
+            ATTEND.put("15APC2337",APC2337_15);
+
+        }else{
+            APC2337_15 = "No";
+            ATTEND.put("15APC2337",APC2337_15);
+        }
+        if(checkBox18.isChecked()){
+            APC2338_15 = "YES";
+            ATTEND.put("15APC2338",APC2338_15);
+
+        }else{
+            APC2338_15 = "No";
+            ATTEND.put("15APC2338",APC2338_15);
+        }
+        if(checkBox19.isChecked()){
+            APC2339_15 = "YES";
+            ATTEND.put("15APC2339",APC2339_15);
+
+        }else{
+            APC2339_15 = "No";
+            ATTEND.put("15APC2339",APC2339_15);
+        }
+        if(checkBox20.isChecked()){
+            APC2340_15 = "YES";
+            ATTEND.put("15APC2340",APC2340_15);
+
+        }else{
+            APC2340_15 = "No";
+            ATTEND.put("15APC2340",APC2340_15);
+        }
+        if(checkBox21.isChecked()){
+            APC2341_15 = "YES";
+            ATTEND.put("15APC2341",APC2341_15);
+
+        }else{
+            APC2341_15 = "No";
+            ATTEND.put("15APC2341",APC2341_15);
+        }
+
+        if(checkBox22.isChecked()){
+            APC2342_15 = "YES";
+            ATTEND.put("15APC2342",APC2342_15);
+
+        }else{
+            APC2342_15 = "No";
+            ATTEND.put("15APC2342",APC2342_15);
+        }
+
+        if(checkBox23.isChecked()){
+            APC2343_15 = "YES";
+            ATTEND.put("15APC2343",APC2343_15);
+
+        }else{
+            APC2343_15 = "No";
+            ATTEND.put("15APC2343",APC2343_15);
+        }
+
+        if(checkBox24.isChecked()){
+            APC2344_15 = "YES";
+            ATTEND.put("15APC2344",APC2344_15);
+
+        }else{
+            APC2344_15 = "No";
+            ATTEND.put("15APC2344",APC2344_15);
+        }
+
+        if(checkBox25.isChecked()){
+            APC2345_15 = "YES";
+            ATTEND.put("15APC2345",APC2345_15);
+
+        }else{
+            APC2345_15 = "No";
+            ATTEND.put("15APC2341",APC2345_15);
+        }
+
+        if(checkBox26.isChecked()){
+            APC2346_15 = "YES";
+            ATTEND.put("15APC2346",APC2346_15);
+
+        }else{
+            APC2346_15 = "No";
+            ATTEND.put("15APC2346",APC2346_15);
+        }
+
+        if(checkBox27.isChecked()){
+            APC2347_15 = "YES";
+            ATTEND.put("15APC2347",APC2347_15);
+
+        }else{
+            APC2347_15 = "No";
+            ATTEND.put("15APC2347",APC2347_15);
+        }
+
+        if(checkBox28.isChecked()){
+            APC2348_15 = "YES";
+            ATTEND.put("15APC2348",APC2348_15);
+
+        }else{
+            APC2348_15 = "No";
+            ATTEND.put("15APC2348",APC2348_15);
+        }
+
+        if(checkBox29.isChecked()){
+            APC2349_15 = "YES";
+            ATTEND.put("15APC2349",APC2349_15);
+
+        }else{
+            APC2349_15 = "No";
+            ATTEND.put("15APC2349",APC2349_15);
+        }
+
+
+        if(checkBox30.isChecked()){
+            APC2350_15 = "YES";
+            ATTEND.put("15APC2350",APC2350_15);
+
+        }else{
+            APC2350_15 = "No";
+            ATTEND.put("15APC2350",APC2350_15);
+        }
+
+        if(checkBox31.isChecked()){
+            APC2351_15 = "YES";
+            ATTEND.put("15APC2351",APC2351_15);
+
+        }else{
+            APC2351_15 = "No";
+            ATTEND.put("15APC2351",APC2351_15);
+        }
+
+
+        if(checkBox32.isChecked()){
+            APC2352_15 = "YES";
+            ATTEND.put("15APC2352",APC2352_15);
+
+        }else{
+            APC2352_15 = "No";
+            ATTEND.put("15APC2352",APC2352_15);
+        }
+
+        if(checkBox33.isChecked()){
+            APC2353_15 = "YES";
+            ATTEND.put("15APC2353",APC2353_15);
+
+        }else{
+            APC2353_15 = "No";
+            ATTEND.put("15APC2353",APC2353_15);
+        }
+
+        if(checkBox34.isChecked()){
+            APC2354_15 = "YES";
+            ATTEND.put("15APC2354",APC2354_15);
+
+        }else{
+            APC2354_15 = "No";
+            ATTEND.put("15APC2354",APC2354_15);
+        }
+
+        if(checkBox35.isChecked()){
+            APC2355_15 = "YES";
+            ATTEND.put("15APC2355",APC2355_15);
+
+        }else{
+            APC2355_15 = "No";
+            ATTEND.put("15APC2355",APC2355_15);
+        }
+
+        if(checkBox36.isChecked()){
+            APC2356_15 = "YES";
+            ATTEND.put("15APC2356",APC2356_15);
+
+        }else{
+            APC2356_15 = "No";
+            ATTEND.put("15APC2356",APC2356_15);
+        }
+
+        if(checkBox37.isChecked()){
+            APC2357_15 = "YES";
+            ATTEND.put("15APC2357",APC2357_15);
+
+        }else{
+            APC2357_15 = "No";
+            ATTEND.put("15APC2357",APC2357_15);
+        }
+
+        if(checkBox38.isChecked()){
+            APC2358_15 = "YES";
+            ATTEND.put("15APC2358",APC2358_15);
+
+        }else{
+            APC2358_15 = "No";
+            ATTEND.put("15APC2358",APC2358_15);
+        }
+
+        if(checkBox39.isChecked()){
+            APC2359_15 = "YES";
+            ATTEND.put("15APC2359",APC2359_15);
+
+        }else{
+            APC2359_15 = "No";
+            ATTEND.put("15APC2359",APC2359_15);
+        }
+
+        if(checkBox40.isChecked()){
+            APC2360_15 = "YES";
+            ATTEND.put("15APC2360",APC2360_15);
+
+        }else{
+            APC2360_15 = "No";
+            ATTEND.put("15APC2360",APC2360_15);
+        }
+
+        if(checkBox41.isChecked()){
+            APC2361_15 = "YES";
+            ATTEND.put("15APC2361",APC2361_15);
+
+        }else{
+            APC2361_15 = "No";
+            ATTEND.put("15APC2361",APC2361_15);
+        }
+
+        if(checkBox42.isChecked()){
+            APC2362_15 = "YES";
+            ATTEND.put("15APC2362",APC2362_15);
+
+        }else{
+            APC2362_15 = "No";
+            ATTEND.put("15APC2362",APC2362_15);
+        }
+
+        if(checkBox43.isChecked()){
+            APC2363_15 = "YES";
+            ATTEND.put("15APC2363",APC2363_15);
+
+        }else{
+            APC2363_15 = "No";
+            ATTEND.put("15APC2363",APC2363_15);
+        }
+
+        if(checkBox44.isChecked()){
+            APC2364_15 = "YES";
+            ATTEND.put("15APC2364",APC2364_15);
+
+        }else{
+            APC2364_15 = "No";
+            ATTEND.put("15APC2364",APC2364_15);
+        }
+
+        if(checkBox45.isChecked()){
+            APC2365_15 = "YES";
+            ATTEND.put("15APC2365",APC2365_15);
+
+        }else{
+            APC2365_15 = "No";
+            ATTEND.put("15APC2365",APC2365_15);
+        }
+
+        if(checkBox46.isChecked()){
+            APC2366_15 = "YES";
+            ATTEND.put("15APC2360",APC2366_15);
+
+        }else{
+            APC2366_15 = "No";
+            ATTEND.put("15APC2366",APC2366_15);
+        }
+
+        if(checkBox47.isChecked()){
+            APC2367_15 = "YES";
+            ATTEND.put("15APC2367",APC2367_15);
+
+        }else{
+            APC2367_15 = "No";
+            ATTEND.put("15APC2367",APC2367_15);
+        }
+
+        if(checkBox48.isChecked()){
+            APC2368_15 = "YES";
+            ATTEND.put("15APC2368",APC2368_15);
+
+        }else{
+            APC2368_15 = "No";
+            ATTEND.put("15APC2368",APC2368_15);
+        }
+
+        if(checkBox49.isChecked()){
+            APC2369_15 = "YES";
+            ATTEND.put("15APC2369",APC2369_15);
+
+        }else{
+            APC2369_15 = "No";
+            ATTEND.put("15APC2369",APC2369_15);
+        }
+
+        if(checkBox50.isChecked()){
+            APC2370_15 = "YES";
+            ATTEND.put("15APC2370",APC2370_15);
+
+        }else{
+            APC2370_15 = "No";
+            ATTEND.put("15APC2370",APC2370_15);
+        }
+        if(checkBox51.isChecked()){
+            APC2371_15 = "YES";
+            ATTEND.put("15APC2371",APC2371_15);
+
+        }else{
+            APC2371_15 = "No";
+            ATTEND.put("15APC2371",APC2371_15);
+        }
+        if(checkBox52.isChecked()){
+            APC2372_15 = "YES";
+            ATTEND.put("15APC2372",APC2372_15);
+
+        }else{
+            APC2372_15 = "No";
+            ATTEND.put("15APC2372",APC2372_15);
+        }
+
+        if(checkBox53.isChecked()){
+            APC2373_15 = "YES";
+            ATTEND.put("15APC2373",APC2373_15);
+
+        }else{
+            APC2373_15 = "No";
+            ATTEND.put("15APC2373",APC2373_15);
+        }
+
+        if(checkBox54.isChecked()){
+            APC2374_15 = "YES";
+            ATTEND.put("15APC2374",APC2374_15);
+
+        }else{
+            APC2374_15 = "No";
+            ATTEND.put("15APC2374",APC2374_15);
+        }
+        if(checkBox55.isChecked()){
+            APC2375_15 = "YES";
+            ATTEND.put("15APC2375",APC2375_15);
+
+        }else{
+            APC2375_15 = "No";
+            ATTEND.put("15APC2375",APC2375_15);
+        }
+
+        if(checkBox56.isChecked()){
+            APC2376_15 = "YES";
+            ATTEND.put("15APC2376",APC2376_15);
+
+        }else{
+            APC2376_15 = "No";
+            ATTEND.put("15APC2376",APC2376_15);
+        }
+        if(checkBox57.isChecked()){
+            APC2377_15 = "YES";
+            ATTEND.put("15APC2377",APC2377_15);
+
+        }else{
+            APC2377_15 = "No";
+            ATTEND.put("15APC2377",APC2377_15);
+        }
+
+        if(checkBox58.isChecked()){
+            APC2378_15 = "YES";
+            ATTEND.put("15APC2378",APC2378_15);
+
+        }else{
+            APC2378_15 = "No";
+            ATTEND.put("15APC2378",APC2378_15);
+        }
+
+        if(checkBox59.isChecked()){
+            APC2379_15 = "YES";
+            ATTEND.put("15APC2379",APC2379_15);
+
+        }else{
+            APC2379_15 = "No";
+            ATTEND.put("15APC2379",APC2379_15);
+        }
+
+        if(checkBox60.isChecked()){
+            APC2380_15 = "YES";
+            ATTEND.put("15APC2380",APC2380_15);
+
+        }else{
+            APC2380_15 = "No";
+            ATTEND.put("15APC2380",APC2380_15);
+        }
+
+        if(checkBox61.isChecked()){
+            APC2381_15 = "YES";
+            ATTEND.put("15APC2381",APC2381_15);
+
+        }else{
+            APC2381_15 = "No";
+            ATTEND.put("15APC2381",APC2381_15);
+        }
+
+        if(checkBox62.isChecked()){
+            APC2382_15 = "YES";
+            ATTEND.put("15APC2382",APC2382_15);
+
+        }else{
+            APC2382_15 = "No";
+            ATTEND.put("15APC2382",APC2382_15);
+        }
+
+        if(checkBox63.isChecked()){
+            APC2383_15 = "YES";
+            ATTEND.put("15APC2383",APC2383_15);
+
+        }else{
+            APC2383_15 = "No";
+            ATTEND.put("15APC2383",APC2383_15);
+        }
+
+        if(checkBox64.isChecked()){
+            APC2384_15 = "YES";
+            ATTEND.put("15APC2384",APC2384_15);
+
+        }else{
+            APC2384_15 = "No";
+            ATTEND.put("15APC2384",APC2384_15);
+        }
+
+        if(checkBox65.isChecked()){
+            APC2385_15 = "YES";
+            ATTEND.put("15APC2385",APC2385_15);
+
+        }else{
+            APC2385_15 = "No";
+            ATTEND.put("15APC2385",APC2385_15);
+        }
+
+        if(checkBox66.isChecked()){
+            APC2386_15 = "YES";
+            ATTEND.put("15APC2386",APC2386_15);
+
+        }else{
+            APC2386_15 = "No";
+            ATTEND.put("15APC2386",APC2386_15);
+        }
+
+        if(checkBox67.isChecked()){
+            APC2387_15 = "YES";
+            ATTEND.put("15APC2387",APC2387_15);
+
+        }else{
+            APC2387_15 = "No";
+            ATTEND.put("15APC2387",APC2387_15);
+        }
+
+        if(checkBox68.isChecked()){
+            APC2388_15 = "YES";
+            ATTEND.put("15APC2388",APC2388_15);
+
+        }else{
+            APC2388_15 = "No";
+            ATTEND.put("15APC2388",APC2388_15);
+        }
+
+        if(checkBox69.isChecked()){
+            APC2389_15 = "YES";
+            ATTEND.put("15APC2389",APC2389_15);
+
+        }else{
+            APC2389_15 = "No";
+            ATTEND.put("15APC2389",APC2389_15);
+        }
+
+        if(checkBox70.isChecked()){
+            APC2390_15 = "YES";
+            ATTEND.put("15APC2390",APC2390_15);
+
+        }else{
+            APC2390_15 = "No";
+            ATTEND.put("15APC2383",APC2390_15);
+        }
+
+
+        if(checkBox71.isChecked()){
+            APC2391_15 = "YES";
+            ATTEND.put("15APC2391",APC2391_15);
+
+        }else{
+            APC2391_15 = "No";
+            ATTEND.put("15APC2391",APC2391_15);
+        }
+
+        if(checkBox72.isChecked()){
+            APC2392_15 = "YES";
+            ATTEND.put("15APC2392",APC2392_15);
+
+        }else{
+            APC2392_15 = "No";
+            ATTEND.put("15APC2392",APC2392_15);
+        }
+        if(checkBox73.isChecked()){
+            APC2393_15 = "YES";
+            ATTEND.put("15APC2393",APC2393_15);
+
+        }else{
+            APC2393_15 = "No";
+            ATTEND.put("15APC2393",APC2393_15);
+        }
+
+        if(checkBox74.isChecked()){
+            APC2394_15 = "YES";
+            ATTEND.put("15APC2394",APC2394_15);
+
+        }else{
+            APC2394_15 = "No";
+            ATTEND.put("15APC2394",APC2394_15);
+        }
+
+        if(checkBox75.isChecked()){
+            APC2395_15 = "YES";
+            ATTEND.put("15APC2395",APC2395_15);
+
+        }else{
+            APC2395_15 = "No";
+            ATTEND.put("15APC2395",APC2395_15);
+        }
+        if(checkBox76.isChecked()){
+            APC2396_15 = "YES";
+            ATTEND.put("15APC2396",APC2396_15);
+
+        }else{
+            APC2396_15 = "No";
+            ATTEND.put("15APC2396",APC2396_15);
+        }
+        if(checkBox77.isChecked()){
+            APC2397_15 = "YES";
+            ATTEND.put("15APC2397",APC2397_15);
+
+        }else{
+            APC2397_15 = "No";
+            ATTEND.put("15APC2397",APC2397_15);
+        }
+        if(checkBox78.isChecked()){
+            APC2398_15 = "YES";
+            ATTEND.put("15APC2398",APC2398_15);
+
+        }else{
+            APC2398_15 = "No";
+            ATTEND.put("15APC2398",APC2398_15);
+        }
+        if(checkBox79.isChecked()){
+            APC2399_15 = "YES";
+            ATTEND.put("15APC2396",APC2399_15);
+
+        }else{
+            APC2399_15 = "No";
+            ATTEND.put("15APC2396",APC2399_15);
+        }
+        if(checkBox81.isChecked()){
+            APC2401_15 = "YES";
+            ATTEND.put("15APC2401",APC2401_15);
+
+        }else{
+            APC2401_15 = "No";
+            ATTEND.put("15APC2401",APC2401_15);
+        }
+        if(checkBox82.isChecked()){
+            APC2402_15 = "YES";
+            ATTEND.put("15APC2402",APC2402_15);
+
+        }else{
+            APC2402_15 = "No";
+            ATTEND.put("15APC2402",APC2402_15);
+        }
+        if(checkBox83.isChecked()){
+            APC2403_15 = "YES";
+            ATTEND.put("15APC2403",APC2403_15);
+
+        }else{
+            APC2403_15 = "No";
+            ATTEND.put("15APC2403",APC2403_15);
+        }
+        if(checkBox84.isChecked()){
+            APC2404_15 = "YES";
+            ATTEND.put("15APC2404",APC2404_15);
+
+        }else{
+            APC2404_15 = "No";
+            ATTEND.put("15APC2404",APC2404_15);
+        }
+        if(checkBox85.isChecked()){
+            APC2405_15 = "YES";
+            ATTEND.put("15APC2405",APC2405_15);
+
+        }else{
+            APC2405_15 = "No";
+            ATTEND.put("15APC2405",APC2405_15);
+        }
+
+        if(checkBox86.isChecked()){
+            APC2406_15 = "YES";
+            ATTEND.put("15APC2406",APC2406_15);
+
+        }else{
+            APC2406_15 = "No";
+            ATTEND.put("15APC2406",APC2406_15);
+        }
+
+        if(checkBox87.isChecked()){
+            APC2407_15 = "YES";
+            ATTEND.put("15APC2407",APC2407_15);
+
+        }else{
+            APC2407_15 = "No";
+            ATTEND.put("15APC2407",APC2407_15);
+        }
+
+        if(checkBox88.isChecked()){
+            APC2408_15 = "YES";
+            ATTEND.put("15APC2408",APC2408_15);
+
+        }else{
+            APC2408_15 = "No";
+            ATTEND.put("15APC2408",APC2408_15);
+        }
+
+        if(checkBox89.isChecked()){
+            APC2409_15 = "YES";
+            ATTEND.put("15APC2409",APC2409_15);
+
+        }else{
+            APC2409_15 = "No";
+            ATTEND.put("15APC2409",APC2409_15);
+        }
+
+        if(checkBox90.isChecked()){
+            APC2410_15 = "YES";
+            ATTEND.put("15APC2410",APC2410_15);
+
+        }else{
+            APC2410_15 = "No";
+            ATTEND.put("15APC2410",APC2410_15);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        mDatabase2.child("2_2_Attendence").setValue(ATTEND).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(AttendenceMarks.this,"Added Attendence ",Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(AttendenceMarks.this,"Error",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 }
