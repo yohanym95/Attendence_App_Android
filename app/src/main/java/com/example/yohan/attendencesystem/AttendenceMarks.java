@@ -27,8 +27,8 @@ import java.util.HashMap;
 
 public class AttendenceMarks extends AppCompatActivity {
 
-    DatabaseReference mDatabase;
-    DatabaseReference mDatabase1,mDatabase2,mDatabase3;
+
+    DatabaseReference mDatabase1,mDatabase2,mDatabase5;
     FirebaseAuth mAuth;
     static String course,year;
     String  datetime1,datetime,period,lec,lecName,mid,quiz,remarks;
@@ -306,14 +306,14 @@ public class AttendenceMarks extends AppCompatActivity {
 
         String id = user.getUid();
 
-        Intent i = getIntent();
-         datetime = i.getStringExtra("time");
-         period = i.getStringExtra("timeperiod");
-         lec = i.getStringExtra("lecturer");
-         lecName = i.getStringExtra("lecName");
-         mid = i.getStringExtra("mid");
-         quiz = i.getStringExtra("quiz");
-         remarks = i.getStringExtra("remarks");
+//        Intent i = getIntent();
+//         datetime = i.getStringExtra("time");
+//         period = i.getStringExtra("timeperiod");
+//         lec = i.getStringExtra("lecturer");
+//         lecName = i.getStringExtra("lecName");
+//         mid = i.getStringExtra("mid");
+//         quiz = i.getStringExtra("quiz");
+//         remarks = i.getStringExtra("remarks");
 
         mDatabase1 = FirebaseDatabase.getInstance().getReference("Users").child(id);
 
@@ -328,9 +328,9 @@ public class AttendenceMarks extends AppCompatActivity {
 
                 if(course.equals("CIS") && year.equals("2.2")){
 
-                    mDatabase = FirebaseDatabase.getInstance().getReference("CIS").child("2_2");
+                    DatabaseReference mDatabase3 = FirebaseDatabase.getInstance().getReference("CIS").child("2_2");
 
-                    mDatabase.addValueEventListener(new ValueEventListener() {
+                    mDatabase3.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -529,6 +529,99 @@ public class AttendenceMarks extends AppCompatActivity {
 
                         }
                     });
+                }else if(course.equals("PST") && year.equals("2.2")){
+                   DatabaseReference  mDatabase4 = FirebaseDatabase.getInstance().getReference("PST").child("2_2");
+
+                   mDatabase4.addValueEventListener(new ValueEventListener() {
+                       @Override
+                       public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                           String APP2271 = dataSnapshot.child("15APP2271").getValue().toString();
+                           String APP2272 = dataSnapshot.child("15APP2272").getValue().toString();
+                           String APP2273 = dataSnapshot.child("15APP2273").getValue().toString();
+                           String APP2274 = dataSnapshot.child("15APP2274").getValue().toString();
+                           String APP2275 = dataSnapshot.child("15APP2275").getValue().toString();
+                           String APP2277 = dataSnapshot.child("15APP2277").getValue().toString();
+                           String APP2278 = dataSnapshot.child("15APP2278").getValue().toString();
+                           String APP2279 = dataSnapshot.child("15APP2279").getValue().toString();
+                           String APP2280 = dataSnapshot.child("15APP2280").getValue().toString();
+                           String APP2281 = dataSnapshot.child("15APP2281").getValue().toString();
+                           String APP2282 = dataSnapshot.child("15APP2282").getValue().toString();
+                           String APP2283 = dataSnapshot.child("15APP2283").getValue().toString();
+                           String APP2284 = dataSnapshot.child("15APP2284").getValue().toString();
+                           String APP2285 = dataSnapshot.child("15APP2285").getValue().toString();
+                           String APP2286 = dataSnapshot.child("15APP2286").getValue().toString();
+                           String APP2288 = dataSnapshot.child("15APP2288").getValue().toString();
+                           String APP2291 = dataSnapshot.child("15APP2291").getValue().toString();
+                           String APP2292 = dataSnapshot.child("15APP2292").getValue().toString();
+                           String APP2294 = dataSnapshot.child("15APP2294").getValue().toString();
+                           String APP2295 = dataSnapshot.child("15APP2295").getValue().toString();
+                           String APP2296 = dataSnapshot.child("15APP2296").getValue().toString();
+                           String AS_PS_043 = dataSnapshot.child("14_AS_PS_043").getValue().toString();
+                           String AS_PS_051 = dataSnapshot.child("14_AS_PS_051").getValue().toString();
+
+
+                           textView1.setText(APP2271);
+                           textView2.setText(APP2272);
+                           textView3.setText(APP2273);
+                           textView4.setText(APP2274);
+                           textView5.setText(APP2275);
+                           textView6.setText(APP2277);
+                           textView7.setText(APP2278);
+                           textView8.setText(APP2279);
+                           textView9.setText(APP2280);
+                           textView10.setText(APP2281);
+                           textView11.setText(APP2282);
+                           textView12.setText(APP2283);
+                           textView13.setText(APP2284);
+                           textView14.setText(APP2285);
+                           textView15.setText(APP2286);
+                           textView16.setText(APP2288);
+                           textView17.setText(APP2291);
+                           textView18.setText(APP2292);
+                           textView19.setText(APP2294);
+                           textView20.setText(APP2295);
+                           textView21.setText(APP2296);
+                           textView22.setText("15APP2297");
+                           textView23.setText(AS_PS_043);
+                           textView24.setText(AS_PS_051);
+
+                           //linearLayout.setVisibility(View.GONE);
+                           linearLayout9.setVisibility(View.GONE);
+                           linearLayout10.setVisibility(View.GONE);
+                           linearLayout11.setVisibility(View.GONE);
+                           linearLayout12.setVisibility(View.GONE);
+                           linearLayout13.setVisibility(View.GONE);
+                           linearLayout14.setVisibility(View.GONE);
+                           linearLayout15.setVisibility(View.GONE);
+                           linearLayout16.setVisibility(View.GONE);
+                           linearLayout17.setVisibility(View.GONE);
+                           linearLayout18.setVisibility(View.GONE);
+                           linearLayout19.setVisibility(View.GONE);
+                           linearLayout20.setVisibility(View.GONE);
+                           linearLayout21.setVisibility(View.GONE);
+                           linearLayout22.setVisibility(View.GONE);
+                           linearLayout23.setVisibility(View.GONE);
+                           linearLayout24.setVisibility(View.GONE);
+                           linearLayout25.setVisibility(View.GONE);
+                           linearLayout26.setVisibility(View.GONE);
+                           linearLayout27.setVisibility(View.GONE);
+                           linearLayout28.setVisibility(View.GONE);
+                           linearLayout29.setVisibility(View.GONE);
+                           linearLayout30.setVisibility(View.GONE);
+                           linearLayout31.setVisibility(View.GONE);
+                           linearLayout32.setVisibility(View.GONE);
+                           linearLayout33.setVisibility(View.GONE);
+                           linearLayout34.setVisibility(View.GONE);
+
+
+                       }
+
+                       @Override
+                       public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                       }
+                   });
                 }
             }
 
@@ -541,6 +634,26 @@ public class AttendenceMarks extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                mDatabase1.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        course = dataSnapshot.child("course").getValue().toString();
+                        year = dataSnapshot.child("year").getValue().toString();
+
+                        if(course.equals("CIS") && year.equals("2.2")){
+                            addData2_2CIS();
+                        }else if(course.equals("PST") && year.equals("2.2")){
+                            addPST2_2();
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
 
                 addData2_2CIS();
             }
@@ -555,26 +668,26 @@ public class AttendenceMarks extends AppCompatActivity {
     private void addData2_2CIS() {
         String APC2321_15,APC2322_15,APC2323_15,APC2324_15,APC2325_15,APC2326_15,APC2327_15,APC2328_15,APC2329_15,APC2330_15,APC2331_15,APC2332_15,APC2333_15,APC2334_15,APC2335_15,APC2336_15,APC2337_15,APC2338_15,APC2339_15,APC2340_15,APC2341_15,APC2342_15,APC2343_15,APC2344_15,APC2345_15,APC2346_15,APC2347_15,APC2348_15,APC2349_15,APC2350_15,APC2351_15,APC2352_15,APC2353_15,APC2354_15,APC2355_15,APC2356_15,APC2357_15,APC2358_15,APC2359_15,APC2360_15,APC2361_15,APC2362_15,APC2363_15,APC2364_15,APC2365_15,APC2366_15,APC2367_15,APC2368_15,APC2369_15,APC2370_15,APC2371_15,APC2372_15,APC2373_15,APC2374_15,APC2375_15,APC2376_15,APC2377_15,APC2378_15,APC2379_15,APC2380_15,APC2381_15,APC2382_15,APC2383_15,APC2384_15,APC2385_15,APC2386_15,APC2387_15,APC2388_15,APC2389_15,APC2390_15,APC2391_15,APC2392_15,APC2393_15,APC2394_15,APC2395_15,APC2396_15,APC2397_15,APC2398_15,APC2399_15,APC2400_15,APC2401_15,APC2402_15,APC2403_15,APC2404_15,APC2405_15,APC2406_15,APC2407_15,APC2408_15,APC2409_15,APC2410_15;
 
-        mDatabase2 = FirebaseDatabase.getInstance().getReference("Attendence_Database").child("2_2_CIS").child(datetime1);
-
-        HashMap<String,String> AttendData = new HashMap<>();
-        AttendData.put("Date",datetime1);
-        AttendData.put("Lec_Period",period);
-        AttendData.put("Lecture",lec);
-        AttendData.put("Lecturer_Name",lecName);
-        AttendData.put("mid",mid);
-        AttendData.put("Quiz",quiz);
-        AttendData.put("Remarks",remarks);
-        mDatabase2.setValue(AttendData).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(AttendenceMarks.this,"Successfully added",Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(AttendenceMarks.this,"Error!",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+       mDatabase2 = FirebaseDatabase.getInstance().getReference("Attendence_Database").child("2_2_CIS").child(datetime1);
+//
+//        HashMap<String,String> AttendData = new HashMap<>();
+//        AttendData.put("Date",datetime1);
+//        AttendData.put("Lec_Period",period);
+//        AttendData.put("Lecture",lec);
+//        AttendData.put("Lecturer_Name",lecName);
+//        AttendData.put("mid",mid);
+//        AttendData.put("Quiz",quiz);
+//        AttendData.put("Remarks",remarks);
+//        mDatabase2.setValue(AttendData).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if(task.isSuccessful()){
+//                    Toast.makeText(AttendenceMarks.this,"Successfully added",Toast.LENGTH_SHORT).show();
+//                }else {
+//                    Toast.makeText(AttendenceMarks.this,"Error!",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
 
 
        // mDatabase3 = FirebaseDatabase.getInstance().getReference("Attendence_Database").child("2_2_CIS").child(datetime1);
@@ -1376,33 +1489,334 @@ public class AttendenceMarks extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         mDatabase2.child("2_2_Attendence").setValue(ATTEND).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(AttendenceMarks.this,"Added Attendence ",Toast.LENGTH_SHORT).show();
+
                 }else {
                     Toast.makeText(AttendenceMarks.this,"Error",Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+    }
+
+    private void addPST2_2(){
+
+        String APP2271_15,APP2272_15,APP2273_15,APP2274_15,APP2275_15,APP2277_15,APP2278_15,APP2279_15,APP2280_15,APP2281_15,APP2282_15,APP2283_15,APP2284_15,APP2285_15,APP2286_15,APP2288_15,APP2291_15,APP2292_15,APP2294_15,APP2295_15,APP2296_15,APP2297_15,AS_PS_043_14,AS_PS_051_14;
+
+
+           mDatabase5 = FirebaseDatabase.getInstance().getReference("Attendence_Database").child("2_2_PST").child(datetime1);
+//
+//        HashMap<String,String> AttendData = new HashMap<>();
+//        AttendData.put("Date",datetime1);
+//        AttendData.put("Lec_Period",period);
+//        AttendData.put("Lecture",lec);
+//        AttendData.put("Lecturer_Name",lecName);
+//        AttendData.put("mid",mid);
+//        AttendData.put("Quiz",quiz);
+//        AttendData.put("Remarks",remarks);
+//        mDatabase5.setValue(AttendData).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if(task.isSuccessful()){
+//                    Toast.makeText(AttendenceMarks.this,"Successfully added",Toast.LENGTH_SHORT).show();
+//                }else {
+//                    Toast.makeText(AttendenceMarks.this,"Error!",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+
+        HashMap<String,String> ATTEND = new HashMap<>();
+
+
+        if(checkBox1.isChecked()){
+
+            APP2271_15 = "YES";
+            ATTEND.put("15APP2271",APP2271_15);
+
+        }else{
+            APP2271_15 = "No";
+            ATTEND.put("15APP2271",APP2271_15);
+        }
+
+
+        if(checkBox2.isChecked()){
+
+            APP2272_15 = "YES";
+            ATTEND.put("15APP2272",APP2272_15);
+
+        }else{
+            APP2272_15 = "No";
+            ATTEND.put("15APP2272",APP2272_15);
+        }
+
+        if(checkBox3.isChecked()){
+
+            APP2273_15 = "YES";
+            ATTEND.put("15APP2273",APP2273_15);
+
+        }else{
+            APP2273_15 = "No";
+            ATTEND.put("15APP2273",APP2273_15);
+        }
+
+        if(checkBox4.isChecked()){
+
+            APP2274_15 = "YES";
+            ATTEND.put("15APP2274",APP2274_15);
+
+        }else{
+            APP2274_15 = "No";
+            ATTEND.put("15APP2274",APP2274_15);
+        }
+
+        if(checkBox5.isChecked()){
+
+            APP2275_15 = "YES";
+            ATTEND.put("15APP2275",APP2275_15);
+
+        }else{
+            APP2275_15 = "No";
+            ATTEND.put("15APP2275",APP2275_15);
+        }
+
+        if(checkBox6.isChecked()){
+
+            APP2277_15 = "YES";
+            ATTEND.put("15APP2277",APP2277_15);
+
+        }else{
+            APP2277_15 = "No";
+            ATTEND.put("15APP2277",APP2277_15);
+        }
+
+        if(checkBox7.isChecked()){
+
+            APP2278_15 = "YES";
+            ATTEND.put("15APP2278",APP2278_15);
+
+        }else{
+            APP2278_15 = "No";
+            ATTEND.put("15APP2278",APP2278_15);
+        }
+
+
+        if(checkBox8.isChecked()){
+
+            APP2279_15 = "YES";
+            ATTEND.put("15APP2279",APP2279_15);
+
+        }else{
+            APP2279_15 = "No";
+            ATTEND.put("15APP2279",APP2279_15);
+        }
+
+        if(checkBox9.isChecked()){
+
+            APP2280_15 = "YES";
+            ATTEND.put("15APP2280",APP2280_15);
+
+        }else{
+            APP2280_15 = "No";
+            ATTEND.put("15APP2280",APP2280_15);
+        }
+
+        if(checkBox10.isChecked()){
+
+            APP2281_15 = "YES";
+            ATTEND.put("15APP2281",APP2281_15);
+
+        }else{
+            APP2281_15 = "No";
+            ATTEND.put("15APP2281",APP2281_15);
+        }
+
+        if(checkBox11.isChecked()){
+
+            APP2282_15 = "YES";
+            ATTEND.put("15APP2282",APP2282_15);
+
+        }else{
+            APP2282_15 = "No";
+            ATTEND.put("15APP2282",APP2282_15);
+        }
+
+        if(checkBox12.isChecked()){
+
+            APP2283_15 = "YES";
+            ATTEND.put("15APP2283",APP2283_15);
+
+        }else{
+            APP2283_15 = "No";
+            ATTEND.put("15APP2283",APP2283_15);
+        }
+
+        if(checkBox13.isChecked()){
+
+            APP2284_15 = "YES";
+            ATTEND.put("15APP2284",APP2284_15);
+
+        }else{
+            APP2284_15 = "No";
+            ATTEND.put("15APP2284",APP2284_15);
+        }
+
+        if(checkBox14.isChecked()){
+
+            APP2285_15 = "YES";
+            ATTEND.put("15APP2285",APP2285_15);
+
+        }else{
+            APP2285_15 = "No";
+            ATTEND.put("15APP2285",APP2285_15);
+        }
+
+        if(checkBox15.isChecked()){
+
+            APP2286_15 = "YES";
+            ATTEND.put("15APP2286",APP2286_15);
+
+        }else{
+            APP2286_15 = "No";
+            ATTEND.put("15APP2286",APP2286_15);
+        }
+
+        if(checkBox16.isChecked()){
+
+            APP2288_15 = "YES";
+            ATTEND.put("15APP2288",APP2288_15);
+
+        }else{
+            APP2288_15 = "No";
+            ATTEND.put("15APP2288",APP2288_15);
+        }
+
+        if(checkBox17.isChecked()){
+
+            APP2291_15 = "YES";
+            ATTEND.put("15APP2291",APP2291_15);
+
+        }else{
+            APP2291_15 = "No";
+            ATTEND.put("15APP2291",APP2291_15);
+        }
+
+        if(checkBox18.isChecked()){
+
+            APP2292_15 = "YES";
+            ATTEND.put("15APP2292",APP2292_15);
+
+        }else{
+            APP2292_15 = "No";
+            ATTEND.put("15APP2292",APP2292_15);
+        }
+
+        if(checkBox19.isChecked()){
+
+            APP2294_15 = "YES";
+            ATTEND.put("15APP2294",APP2294_15);
+
+        }else{
+            APP2294_15 = "No";
+            ATTEND.put("15APP2294",APP2294_15);
+        }
+
+        if(checkBox20.isChecked()){
+
+            APP2295_15 = "YES";
+            ATTEND.put("15APP2295",APP2295_15);
+
+        }else{
+            APP2295_15 = "No";
+            ATTEND.put("15APP2295",APP2295_15);
+        }
+
+        if(checkBox21.isChecked()){
+
+            APP2296_15 = "YES";
+            ATTEND.put("15APP2296",APP2296_15);
+
+        }else{
+            APP2296_15 = "No";
+            ATTEND.put("15APP2296",APP2296_15);
+        }
+
+        if(checkBox21.isChecked()){
+
+            APP2297_15 = "YES";
+            ATTEND.put("15APP2297",APP2297_15);
+
+        }else{
+            APP2297_15 = "No";
+            ATTEND.put("15APP2297",APP2297_15);
+        }
+
+        if(checkBox23.isChecked()){
+
+            AS_PS_043_14= "YES";
+            ATTEND.put("14_AS_PS043",AS_PS_043_14);
+
+        }else{
+            AS_PS_043_14 = "No";
+            ATTEND.put("14_AS_PS043",AS_PS_043_14);
+        }
+
+        if(checkBox24.isChecked()){
+
+            AS_PS_051_14 = "YES";
+            ATTEND.put("14_AS_PS051",AS_PS_051_14);
+
+        }else{
+            AS_PS_051_14 = "No";
+            ATTEND.put("14_AS_PS051",AS_PS_051_14);
+        }
+
+        mDatabase5.child("2_2_Attendence").setValue(ATTEND).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(AttendenceMarks.this,"Added Attendence ",Toast.LENGTH_SHORT).show();
+                    checkBox1.setChecked(false);
+                    checkBox2.setChecked(false);
+                    checkBox3.setChecked(false);
+                    checkBox4.setChecked(false);
+                    checkBox5.setChecked(false);
+                    checkBox6.setChecked(false);
+                    checkBox7.setChecked(false);
+                    checkBox8.setChecked(false);
+                    checkBox9.setChecked(false);
+                    checkBox10.setChecked(false);
+                    checkBox11.setChecked(false);
+                    checkBox12.setChecked(false);
+                    checkBox13.setChecked(false);
+                    checkBox14.setChecked(false);
+                    checkBox15.setChecked(false);
+                    checkBox16.setChecked(false);
+                    checkBox17.setChecked(false);
+                    checkBox18.setChecked(false);
+                    checkBox19.setChecked(false);
+                    checkBox20.setChecked(false);
+                    checkBox21.setChecked(false);
+                    checkBox22.setChecked(false);
+                    checkBox23.setChecked(false);
+                    checkBox24.setChecked(false);
+
+
+
+
+
+
+                }else {
+                    Toast.makeText(AttendenceMarks.this,"Error",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+
 
     }
 }
